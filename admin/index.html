@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Login | QT Training</title>
+  <link rel="icon" href="../assets/logo/favicon-32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-card">
+      <img src="../assets/logo/logo-header.png" alt="QT Training logo">
+      <h1>Admin Login</h1>
+      <p class="sub">Sign in to manage courses, workshops, news, events and more.</p>
+      <form data-login-form>
+        <div class="form-field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" required autocomplete="username">
+        </div>
+        <div class="form-field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        <p class="form-status" data-form-status></p>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="../js/admin/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* QT Training — design tokens (Navy / Teal / Gold, light + dark themes) */
+
+:root {
+  --bg: #F7F9FA;
+  --bg-alt: #EEF2F4;
+  --surface: #FFFFFF;
+  --primary: #10243F;
+  --primary-2: #1B3358;
+  --accent: #14B8A6;
+  --accent-dark: #0E8C7E;
+  --highlight: #F6B93B;
+  --text: #16202B;
+  --text-muted: #5B6672;
+  --border: #E3E8EC;
+  --brand-red: #D42A2A;
+
+  /* --primary is a genuinely dark navy in both themes here, so it doubles
+     as the solid fill for large bands (hero underlay, page-hero, stats
+     band, CTA band, footer, admin sidebar). Kept as separate token names
+     for readability at the call sites. */
+  --brand-fill: #10243F;
+  --brand-fill-light: #1B3358;
+  --overlay-rgb: 16, 36, 63;
+
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-heading);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(16, 36, 63, 0.08);
+  --shadow-md: 0 8px 24px rgba(16, 36, 63, 0.14);
+  --container: 1180px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0B141F;
+  --bg-alt: #101C2B;
+  --surface: #121E2E;
+  --primary: #1E3A5F;
+  --primary-2: #2A4A72;
+  --accent: #2DD4C6;
+  --accent-dark: #6FE4D9;
+  --highlight: #FFC65C;
+  --text: #E8EDF2;
+  --text-muted: #9FB0BF;
+  --border: #24344A;
+  --brand-red: #E85454;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --brand-fill: #0E1826;
+  --brand-fill-light: #1E3A5F;
+  --overlay-rgb: 14, 24, 38;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B141F;
+    --bg-alt: #101C2B;
+    --surface: #121E2E;
+    --primary: #1E3A5F;
+    --primary-2: #2A4A72;
+    --accent: #2DD4C6;
+    --accent-dark: #6FE4D9;
+    --highlight: #FFC65C;
+    --text: #E8EDF2;
+    --text-muted: #9FB0BF;
+    --border: #24344A;
+    --brand-red: #E85454;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+    --brand-fill: #0E1826;
+    --brand-fill-light: #1E3A5F;
+    --overlay-rgb: 14, 24, 38;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ---------- Motion & reduced-motion baseline ---------- */
+/* Everything else defines transitions/animations assuming motion is fine;
+   this single override collapses them all to near-zero for anyone who
+   has asked the OS for reduced motion, rather than every component
+   needing its own reduced-motion branch. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>News | QT Training Admin</title>
+  <link rel="icon" href="../assets/logo/favicon-32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+</head>
+<body class="admin-body">
+
+<aside class="admin-sidebar" data-admin-sidebar>
+  <a href="dashboard.html" class="brand">
+    <img src="../assets/logo/logo-white.png" alt="QT Training">
+    <span class="admin-brand-label">Admin Dashboard</span>
+  </a>
+  <ul class="admin-nav">
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-section-label">Content Management</li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="news.html" class="active">News</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li class="nav-section-label">Management</li>
+    <li><a href="enquiries.html">Enquiries</a></li>
+    <li><a href="subscribers.html">Subscribers</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+  <div class="admin-sidebar-footer">
+    <div class="admin-sidebar-email" data-admin-email></div>
+    <button class="btn btn-outline btn-sm" data-logout-btn>Log Out</button>
+  </div>
+</aside>
+<div class="admin-sidebar-backdrop" data-admin-sidebar-backdrop></div>
+
+<main class="admin-main">
+  <div class="admin-topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="admin-menu-toggle" data-admin-menu-toggle aria-label="Toggle menu">&#9776;</button>
+      <h1>News</h1>
+    </div>
+    <div class="admin-topbar-actions">
+      <span class="admin-topbar-email" data-admin-email></span>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"></button>
+    </div>
+  </div>
+  <div class="admin-content">
+    <div class="admin-card">
+      <div class="admin-toolbar">
+        <h2>News posts</h2>
+        <button class="btn btn-primary btn-sm" data-add-btn>+ Add Post</button>
+      </div>
+      <p style="color:var(--text-muted); font-size:.88rem; margin-top:-8px;">This is a read-on-the-site feed only &mdash; publishing here does not email your subscribers. Sending real emails would need a separate email service.</p>
+
+      <form class="admin-form-panel" data-form-panel>
+        <input type="hidden" name="id">
+        <div class="admin-form-grid">
+          <div class="form-field full">
+            <label>Title</label>
+            <input type="text" name="title" required>
+          </div>
+          <div class="form-field">
+            <label>Slug</label>
+            <input type="text" name="slug" required>
+          </div>
+          <div class="form-field">
+            <label>Published date</label>
+            <input type="date" name="published_at">
+          </div>
+          <div class="form-field full">
+            <label>Excerpt</label>
+            <textarea name="excerpt" rows="2"></textarea>
+          </div>
+          <div class="form-field full">
+            <label>Body</label>
+            <textarea name="body" rows="6"></textarea>
+          </div>
+          <div class="form-field">
+            <label>Cover image</label>
+            <input type="file" name="cover_file" accept="image/*">
+            <input type="hidden" name="cover_image_url">
+            <img data-upload-preview alt="Cover preview" style="display:none; margin-top:10px; width:120px; height:80px; object-fit:cover; border-radius:6px; border:1px solid var(--border);">
+            <p class="form-note" data-upload-note></p>
+          </div>
+          <div class="form-field">
+            <label><input type="checkbox" name="is_published" style="width:auto; margin-right:8px;">Published (visible on site)</label>
+          </div>
+        </div>
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn-primary btn-sm">Save Post</button>
+          <button type="button" class="btn btn-outline on-light btn-sm" data-cancel-btn>Cancel</button>
+        </div>
+        <p class="form-status" data-form-status></p>
+      </form>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Title</th><th>Published date</th><th>Status</th><th></th></tr></thead>
+          <tbody data-table-body>
+            <tr><td colspan="4"><span class="spinner"></span>Loading&hellip;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/theme.js"></script>
+<script type="module" src="../js/admin/news.js"></script>
+</body>
+</html>

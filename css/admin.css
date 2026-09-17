@@ -1,0 +1,147 @@
+/* QT Training — admin dashboard styles */
+
+body.admin-body { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--brand-fill);
+  color: rgba(255,255,255,.85);
+  padding: 24px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.admin-sidebar .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+.admin-sidebar .brand img { height: 34px; }
+.admin-brand-label { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75); line-height: 1.2; }
+.admin-nav { list-style: none; margin: 0; padding: 0; flex: 1; }
+.admin-nav li { margin-bottom: 4px; }
+.admin-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: rgba(255,255,255,.8);
+  font-size: .9rem;
+  font-weight: 600;
+}
+.admin-nav a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.admin-nav a.active { background: var(--accent); color: #fff; }
+.admin-nav .nav-section-label {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.5);
+  margin: 18px 14px 8px;
+}
+
+.admin-sidebar-footer {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+.admin-sidebar-email {
+  font-size: .8rem;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.admin-sidebar-email::before { content: "Logged in as"; display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: rgba(255,255,255,.45); margin-bottom: 2px; }
+
+.admin-topbar-email {
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+.admin-main { flex: 1; min-width: 0; background: var(--bg); }
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.admin-topbar h1 { margin: 0; font-size: 1.3rem; }
+.admin-topbar-actions { display: flex; align-items: center; gap: 14px; }
+.admin-content { padding: 32px; max-width: 1100px; animation: adminFadeIn .35s ease both; }
+@keyframes adminFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.admin-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+
+.admin-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 28px; }
+@media (max-width: 900px) { .admin-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+.admin-stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+.admin-stat .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+.admin-stat .label { color: var(--text-muted); font-size: .85rem; margin-top: 4px; }
+
+.admin-table-wrap { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: .9rem; vertical-align: top; }
+.admin-table th { color: var(--text-muted); text-transform: uppercase; font-size: .72rem; letter-spacing: .04em; }
+.admin-table td.actions { white-space: nowrap; text-align: right; }
+.admin-table tr:last-child td { border-bottom: none; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .74rem; font-weight: 700; }
+.badge.yes { background: #DDEFE1; color: #256B3E; }
+.badge.no { background: #F2E4E1; color: #8A3B2A; }
+:root[data-theme="dark"] .badge.yes { background: #163B26; color: #7FD8A0; }
+:root[data-theme="dark"] .badge.no { background: #3B2420; color: #E8A48D; }
+
+.admin-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 12px; flex-wrap: wrap; }
+.admin-toolbar h2 { margin: 0; font-size: 1.1rem; }
+
+.admin-form-panel { display: none; margin-bottom: 24px; }
+.admin-form-panel.open { display: block; }
+.admin-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .admin-form-grid { grid-template-columns: 1fr; } }
+.admin-form-grid .full { grid-column: 1 / -1; }
+.admin-form-actions { display: flex; gap: 10px; margin-top: 8px; }
+
+.confirm-delete-row { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+
+.login-shell { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-alt); width: 100%; padding: 20px; }
+.login-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; width: 100%; max-width: 380px; box-shadow: var(--shadow-md); }
+.login-card img { height: 48px; margin-bottom: 20px; }
+.login-card h1 { font-size: 1.2rem; margin: 0 0 6px; }
+.login-card p.sub { color: var(--text-muted); font-size: .88rem; margin: 0 0 24px; }
+@media (max-width: 420px) {
+  .login-card { padding: 28px 22px; }
+}
+
+.admin-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 190;
+}
+
+@media (max-width: 900px) {
+  .admin-sidebar { position: fixed; left: -260px; z-index: 200; transition: left .2s ease; }
+  .admin-sidebar.open { left: 0; }
+  .admin-sidebar.open ~ .admin-sidebar-backdrop,
+  .admin-sidebar.open + .admin-sidebar-backdrop {
+    display: block;
+  }
+  .admin-content { padding: 20px; }
+  .admin-topbar { padding: 14px 20px; }
+  .admin-stats-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .admin-stats-grid { grid-template-columns: 1fr; }
+  .admin-form-actions { flex-wrap: wrap; }
+}
+.admin-menu-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 1.4rem; }
+@media (max-width: 900px) { .admin-menu-toggle { display: block; } }

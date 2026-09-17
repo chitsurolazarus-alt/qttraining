@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Settings | QT Training Admin</title>
+  <link rel="icon" href="../assets/logo/favicon-32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+</head>
+<body class="admin-body">
+
+<aside class="admin-sidebar" data-admin-sidebar>
+  <a href="dashboard.html" class="brand">
+    <img src="../assets/logo/logo-white.png" alt="QT Training">
+    <span class="admin-brand-label">Admin Dashboard</span>
+  </a>
+  <ul class="admin-nav">
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-section-label">Content Management</li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li class="nav-section-label">Management</li>
+    <li><a href="enquiries.html">Enquiries</a></li>
+    <li><a href="subscribers.html">Subscribers</a></li>
+    <li><a href="settings.html" class="active">Settings</a></li>
+  </ul>
+  <div class="admin-sidebar-footer">
+    <div class="admin-sidebar-email" data-admin-email></div>
+    <button class="btn btn-outline btn-sm" data-logout-btn>Log Out</button>
+  </div>
+</aside>
+<div class="admin-sidebar-backdrop" data-admin-sidebar-backdrop></div>
+
+<main class="admin-main">
+  <div class="admin-topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="admin-menu-toggle" data-admin-menu-toggle aria-label="Toggle menu">&#9776;</button>
+      <h1>Settings</h1>
+    </div>
+    <div class="admin-topbar-actions">
+      <span class="admin-topbar-email" data-admin-email></span>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"></button>
+    </div>
+  </div>
+  <div class="admin-content">
+    <div class="admin-card">
+      <h2 style="margin-top:0;">Contact details</h2>
+      <p style="color:var(--text-muted); font-size:.88rem;">
+        These are stored in the database for reference. The public site currently shows contact
+        details as fixed text on each page &mdash; ask your developer to wire these fields into the
+        site's footer and contact page if you want them to update live from here without a redeploy.
+      </p>
+      <form data-settings-form>
+        <div class="form-field">
+          <label>Primary phone</label>
+          <input type="text" name="phone_primary">
+        </div>
+        <div class="form-field">
+          <label>Secondary phone</label>
+          <input type="text" name="phone_secondary">
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" name="email">
+        </div>
+        <div class="form-field">
+          <label>Address</label>
+          <input type="text" name="address">
+        </div>
+        <div class="form-field">
+          <label>Facebook URL</label>
+          <input type="url" name="facebook_url">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Save Settings</button>
+        <p class="form-status" data-form-status></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="../js/theme.js"></script>
+<script type="module" src="../js/admin/settings.js"></script>
+</body>
+</html>

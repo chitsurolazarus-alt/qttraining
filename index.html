@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QT Training | Training People For Progress</title>
+  <meta name="description" content="QT Training (Pty) Ltd — accredited skills development and workplace training in Tzaneen, Limpopo. Training People For Progress since 2011.">
+  <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <script>
+    // Decide BEFORE paint whether the welcome splash should be skipped,
+    // so returning-this-session visitors never see a flash of it.
+    (function () {
+      try {
+        if (sessionStorage.getItem('qt_welcome_shown')) {
+          document.documentElement.classList.add('no-splash');
+        }
+      } catch (e) { /* sessionStorage unavailable — fall through, splash will just show */ }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('no-splash');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- Welcome / loading splash — homepage-only, first visit of the session.
+     Controller: js/welcome-splash.js. Styles: css/main.css ("Welcome splash"). -->
+<div id="welcome-splash" class="welcome-splash" aria-hidden="true">
+  <div class="welcome-splash-content">
+    <img src="assets/logo/favicon-512.png" alt="" class="welcome-splash-mark">
+    <h1 class="welcome-splash-title">Welcome to QT Training</h1>
+    <p class="welcome-splash-tagline">Training People For Progress</p>
+    <div class="welcome-splash-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-chip"><img src="assets/logo/logo-header.png" alt="QT Training logo"></span>
+    </a>
+    <ul class="nav-links" data-nav-links>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"></button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Enquire Now</a>
+    </div>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('assets/images/hero-training-session.jpg');"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-kicker">Accredited Skills Development &middot; Tzaneen, Limpopo</span>
+      <h1>Training People For Progress.</h1>
+      <p>QT Training helps employers turn compliance into real workplace capability &mdash; from funded learnerships to practical workplace power sessions.</p>
+      <div class="hero-actions">
+        <a href="courses.html" class="btn btn-primary">Explore Accredited Courses</a>
+        <a href="contact.html" class="btn btn-outline">Talk To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container stats-grid">
+    <div>
+      <div class="stat-num" data-counter="2011">0</div>
+      <div class="stat-label">Founded</div>
+    </div>
+    <div>
+      <div class="stat-num" data-counter="26" data-counter-suffix="+">0</div>
+      <div class="stat-label">Years SDF Experience</div>
+    </div>
+    <div>
+      <div class="stat-num" data-counter="13">0</div>
+      <div class="stat-label">Accredited Qualifications</div>
+    </div>
+    <div>
+      <div class="stat-num" data-counter="9">0</div>
+      <div class="stat-label">SETAs We Work With</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-home-updates style="display:none;">
+  <div class="container">
+    <div class="home-updates-grid">
+      <div class="ad-banner" data-news-banner style="display:none;">
+        <span class="ad-banner-tag">Latest News</span>
+        <h3 data-field="title"></h3>
+        <p data-field="body"></p>
+        <a href="news.html" class="btn btn-outline on-light btn-sm">Read More</a>
+      </div>
+      <div class="ad-banner" data-event-banner style="display:none;">
+        <span class="ad-banner-tag">Upcoming Event</span>
+        <h3 data-field="title"></h3>
+        <p data-field="body"></p>
+        <a href="events.html" class="btn btn-outline on-light btn-sm">View Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-kicker">What We Do</span>
+      <h2>The full training lifecycle, handled</h2>
+      <p>Skills planning, funding, learner recruitment, delivery, quality assurance and close-out &mdash; in one accountable partner.</p>
+    </div>
+    <div class="card-grid">
+      <a href="courses.html" class="photo-card" style="text-decoration:none;">
+        <img src="assets/images/thumbs/course-banner-accreditation.jpg" alt="QT Training accreditation course banner">
+        <div class="photo-card-body">
+          <h3>Accredited Qualifications</h3>
+          <p>13 SETA-accredited qualifications across retail, digital skills and management &mdash; NQF 2 to NQF 6.</p>
+        </div>
+      </a>
+      <a href="workshops.html" class="photo-card" style="text-decoration:none;">
+        <img src="assets/images/thumbs/boardroom-session.jpg" alt="Boardroom-based workplace training session">
+        <div class="photo-card-body">
+          <h3>Workplace Power Sessions</h3>
+          <p>Short, practical workshops on leadership, teamwork, personal effectiveness and service excellence.</p>
+        </div>
+      </a>
+      <a href="about.html" class="photo-card" style="text-decoration:none;">
+        <img src="assets/images/thumbs/stakeholder-visit.jpg" alt="QT Training stakeholder site visit">
+        <div class="photo-card-body">
+          <h3>Full Project Support</h3>
+          <p>Skills audits, grant support, learner recruitment, workplace coordination and quality assurance.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-kicker">Real Results</span>
+      <h2>Graduations that matter</h2>
+      <p>Every certificate represents a learner, a workplace, and a completed journey.</p>
+    </div>
+    <div class="card-grid">
+      <div class="photo-card">
+        <img src="assets/images/thumbs/graduation-group.jpg" alt="QT Training graduating learners group photo">
+        <div class="photo-card-body"><h3>Graduation Day</h3><p>Cohorts completing accredited learnership programmes.</p></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/images/thumbs/certificate-award.jpg" alt="Learner receiving a certificate">
+        <div class="photo-card-body"><h3>Certification</h3><p>Recognised qualifications, ready for the workplace.</p></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/images/thumbs/computer-lab.jpg" alt="Learners in a computer skills training lab">
+        <div class="photo-card-body"><h3>Digital Skills</h3><p>End-user computing and enterprise skills programmes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-band">
+  <div class="container">
+    <div class="testimonial-card" data-testimonial-target>
+      <blockquote>&ldquo;Mrs Lombard was in charge of all our formalised training and responsible for implementation and management of all our learnership programmes and SETA graduate initiatives. She managed these programmes with great enthusiasm and success.&rdquo;</blockquote>
+      <div class="testimonial-author">Paul Jacobus</div>
+      <div class="testimonial-role">CEO, ProGroup Pharmacies</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Ready to build a more capable workplace?</h2>
+      <p>From skills audits to graduation day &mdash; let's talk about your training needs.</p>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="assets/logo/logo-white.png" alt="QT Training logo"></div>
+        <p class="footer-tagline">Training People For Progress. WRSETA Accreditation No. 620.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Accredited Courses</a></li>
+          <li><a href="workshops.html">Workplace Power Sessions</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://www.facebook.com/share/1Bwn9JRV83/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>48 King Edward Drive, Lombard Building, Tzaneen, Limpopo</li>
+          <li><a href="tel:+27153072006">015 307 2006</a></li>
+          <li><a href="tel:+27823551517">082 355 1517</a></li>
+          <li><a href="mailto:machel@qttraining.co.za">machel@qttraining.co.za</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> QT Training (Pty) Ltd. Reg. 2001/124951/07.</span>
+      <span>Created by <a href="https://www.lcdigitalsolution.co.za/" target="_blank" rel="noopener">L.C Digital Solution</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/welcome-splash.js"></script>
+<script src="js/animations.js"></script>
+<script type="module" src="js/home.js"></script>
+<a href="admin/index.html" class="hidden-admin-link" tabindex="-1">THE END</a>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Enquiries | QT Training Admin</title>
+  <link rel="icon" href="../assets/logo/favicon-32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+</head>
+<body class="admin-body">
+
+<aside class="admin-sidebar" data-admin-sidebar>
+  <a href="dashboard.html" class="brand">
+    <img src="../assets/logo/logo-white.png" alt="QT Training">
+    <span class="admin-brand-label">Admin Dashboard</span>
+  </a>
+  <ul class="admin-nav">
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-section-label">Content Management</li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li class="nav-section-label">Management</li>
+    <li><a href="enquiries.html" class="active">Enquiries</a></li>
+    <li><a href="subscribers.html">Subscribers</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+  <div class="admin-sidebar-footer">
+    <div class="admin-sidebar-email" data-admin-email></div>
+    <button class="btn btn-outline btn-sm" data-logout-btn>Log Out</button>
+  </div>
+</aside>
+<div class="admin-sidebar-backdrop" data-admin-sidebar-backdrop></div>
+
+<main class="admin-main">
+  <div class="admin-topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="admin-menu-toggle" data-admin-menu-toggle aria-label="Toggle menu">&#9776;</button>
+      <h1>Enquiries</h1>
+    </div>
+    <div class="admin-topbar-actions">
+      <span class="admin-topbar-email" data-admin-email></span>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"></button>
+    </div>
+  </div>
+  <div class="admin-content">
+    <div class="admin-card">
+      <div class="admin-toolbar">
+        <h2>Contact form submissions</h2>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Received</th><th>Name</th><th>Contact</th><th>Message</th><th>Status</th><th></th></tr></thead>
+          <tbody data-table-body>
+            <tr><td colspan="6"><span class="spinner"></span>Loading&hellip;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/theme.js"></script>
+<script type="module" src="../js/admin/enquiries.js"></script>
+</body>
+</html>
