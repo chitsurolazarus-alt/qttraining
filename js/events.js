@@ -18,7 +18,7 @@ function renderList(target, events, emptyMessage) {
   }
   target.innerHTML = events.map((ev) => `
     <article class="entry-card">
-      ${ev.cover_image_url ? `<img src="${escapeHtml(ev.cover_image_url)}" alt="${escapeHtml(ev.title)}">` : ""}
+      ${ev.cover_image_url ? `<a class="entry-image-link" href="${escapeHtml(ev.cover_image_url)}" target="_blank" rel="noopener"><img src="${escapeHtml(ev.cover_image_url)}" alt="${escapeHtml(ev.title)}"></a>` : ""}
       <div class="entry-card-body">
         <div class="entry-date">${formatDate(ev.event_date)}${ev.location ? " &middot; " + escapeHtml(ev.location) : ""}</div>
         <h3>${escapeHtml(ev.title)}</h3>

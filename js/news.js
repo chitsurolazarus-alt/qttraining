@@ -29,7 +29,7 @@ async function loadNews() {
 
   wrap.innerHTML = data.map((post) => `
     <article class="entry-card">
-      ${post.cover_image_url ? `<img src="${escapeHtml(post.cover_image_url)}" alt="${escapeHtml(post.title)}">` : ""}
+      ${post.cover_image_url ? `<a class="entry-image-link" href="${escapeHtml(post.cover_image_url)}" target="_blank" rel="noopener"><img src="${escapeHtml(post.cover_image_url)}" alt="${escapeHtml(post.title)}"></a>` : ""}
       <div class="entry-card-body">
         <div class="entry-date">${formatDate(post.published_at)}</div>
         <h3>${escapeHtml(post.title)}</h3>
