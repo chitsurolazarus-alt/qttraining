@@ -113,6 +113,12 @@ consistently across both the public site and the admin dashboard. The
 logo always sits on its own white chip in the nav (`.brand-chip`) so it
 reads correctly in both themes and never clashes with the palette.
 
+**Dark is the default** for first-time visitors (not just "whatever the
+OS prefers") — the inline flash-prevention script in every page's
+`<head>` sets `data-theme="dark"` unless `localStorage` already has an
+explicit `light`/`dark` choice saved from a previous visit. Toggling the
+theme still persists per-browser as before.
+
 Three-tier colour system, matching the brief's own wording:
 - **`--primary`** (navy) — nav/header/footer backgrounds, section
   headers, large dark panels. It's a genuinely dark navy in *both*

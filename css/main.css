@@ -573,39 +573,55 @@ html.no-splash .welcome-splash { display: none !important; }
 @keyframes splashFadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes splashPulse { 0%, 100% { opacity: .35; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
 
-/* ---------- Homepage "latest update" promo banners ---------- */
-.home-updates-grid {
+/* ---------- Homepage "News & Events" card grid ----------
+   Card badge colours deliberately reuse --brand-red (the logo's red,
+   already sanctioned for small accents/badges) for Event, and
+   --brand-fill (dark charcoal-navy) for News, rather than inventing
+   new tokens. */
+.news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
-@media (max-width: 560px) {
-  .home-updates-grid { grid-template-columns: 1fr; }
-}
-.ad-banner {
-  position: relative;
+@media (max-width: 900px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .news-grid { grid-template-columns: 1fr; } }
+
+.news-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
-  border: 1px solid var(--highlight);
-  border-radius: var(--radius-lg);
-  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.ad-banner:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.ad-banner-tag {
-  display: inline-block;
-  background: var(--highlight);
-  color: var(--primary);
+.news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+.nc-media { position: relative; }
+.nc-media img { width: 100%; height: 170px; object-fit: cover; display: block; }
+
+.news-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--brand-red);
+  color: #fff;
+  font-size: .7rem;
   font-weight: 700;
-  font-size: .72rem;
   text-transform: uppercase;
-  letter-spacing: .05em;
-  padding: 4px 12px;
+  letter-spacing: .04em;
+  padding: 4px 10px;
   border-radius: 999px;
-  margin-bottom: 14px;
 }
-.ad-banner h3 { margin: 0 0 8px; font-size: 1.2rem; }
-.ad-banner p { margin: 0 0 16px; color: var(--text-muted); font-size: .92rem; }
+.news-badge.is-news { background: var(--brand-fill); }
+
+.nc-body { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.nc-meta { color: var(--brand-red); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.nc-body h3 { margin: 2px 0 4px; font-size: 1.05rem; }
+.nc-body p { margin: 0; color: var(--text-muted); font-size: .9rem; }
 
 /* ---------- Scroll-reveal (driven by js/animations.js) ---------- */
 .reveal {

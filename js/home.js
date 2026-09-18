@@ -26,51 +26,69 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString("en-ZA", { year: "numeric", month: "long", day: "numeric" });
 }
 
-async function loadHomeUpdates() {
-  const section = document.querySelector("[data-home-updates]");
-  const newsBanner = document.querySelector("[data-news-banner]");
-  const eventBanner = document.querySelector("[data-event-banner]");
-  if (!section || !newsBanner || !eventBanner) return;
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str == null ? "" : String(str);
+  return div.innerHTML;
+}
 
-  const today = new Date().toISOString().slice(0, 10);
+async function loadNewsEventsGrid() {
+  const grid = document.querySelector("[data-news-events-grid]");
+  if (!grid) return;
 
-  const [newsResult, eventResult] = await Promise.all([
-    supabase
-      .from("news_posts")
-      .select("title, excerpt")
-      .eq("is_published", true)
-      .order("published_at", { ascending: false, nullsFirst: false })
-      .limit(1),
+  const [eventsResult, newsResult] = await Promise.all([
     supabase
       .from("events")
-      .select("title, event_date, location")
+      .select("title, description, event_date, location, cover_image_url, created_at")
       .eq("is_published", true)
-      .gte("event_date", today)
-      .order("event_date", { ascending: true })
-      .limit(1),
+      .order("created_at", { ascending: false })
+      .limit(2),
+    supabase
+      .from("news_posts")
+      .select("title, excerpt, published_at, cover_image_url, created_at")
+      .eq("is_published", true)
+      .order("created_at", { ascending: false })
+      .limit(2),
   ]);
 
-  let anyVisible = false;
+  const items = [
+    ...(eventsResult.data || []).map((e) => ({
+      type: "Event",
+      title: e.title,
+      description: e.description,
+      meta: [formatDate(e.event_date) || "Date to be confirmed", e.location].filter(Boolean).join(" · "),
+      image: e.cover_image_url,
+      href: "events.html",
+    })),
+    ...(newsResult.data || []).map((n) => ({
+      type: "News",
+      title: n.title,
+      description: n.excerpt,
+      meta: formatDate(n.published_at),
+      image: n.cover_image_url,
+      href: "news.html",
+    })),
+  ];
 
-  const post = newsResult.data && newsResult.data[0];
-  if (post) {
-    newsBanner.querySelector('[data-field="title"]').textContent = post.title;
-    newsBanner.querySelector('[data-field="body"]').textContent = post.excerpt || "";
-    newsBanner.style.display = "";
-    anyVisible = true;
+  if (items.length === 0) {
+    grid.innerHTML = '<p class="empty-state">No news or events yet. Check back soon.</p>';
+    return;
   }
 
-  const event = eventResult.data && eventResult.data[0];
-  if (event) {
-    eventBanner.querySelector('[data-field="title"]').textContent = event.title;
-    const metaLine = [formatDate(event.event_date), event.location].filter(Boolean).join(" · ");
-    eventBanner.querySelector('[data-field="body"]').textContent = metaLine;
-    eventBanner.style.display = "";
-    anyVisible = true;
-  }
-
-  if (anyVisible) section.style.display = "";
+  grid.innerHTML = items.map((item) => `
+    <a class="news-card" href="${escapeHtml(item.href)}">
+      <div class="nc-media">
+        ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">` : ""}
+        <span class="news-badge${item.type === "News" ? " is-news" : ""}">${escapeHtml(item.type)}</span>
+      </div>
+      <div class="nc-body">
+        ${item.meta ? `<div class="nc-meta">${escapeHtml(item.meta)}</div>` : ""}
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.description || "")}</p>
+      </div>
+    </a>
+  `).join("");
 }
 
 loadTestimonial();
-loadHomeUpdates();
+loadNewsEventsGrid();

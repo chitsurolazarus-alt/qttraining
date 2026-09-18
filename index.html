@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/main.css">
-  <script>(function(){try{var t=localStorage.getItem('qt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <script>(function(){try{var t=localStorage.getItem('qt-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
   <script>
     // Decide BEFORE paint whether the welcome splash should be skipped,
     // so returning-this-session visitors never see a flash of it.
@@ -102,25 +102,6 @@
   </div>
 </section>
 
-<section class="section" data-home-updates style="display:none;">
-  <div class="container">
-    <div class="home-updates-grid">
-      <div class="ad-banner" data-news-banner style="display:none;">
-        <span class="ad-banner-tag">Latest News</span>
-        <h3 data-field="title"></h3>
-        <p data-field="body"></p>
-        <a href="news.html" class="btn btn-outline on-light btn-sm">Read More</a>
-      </div>
-      <div class="ad-banner" data-event-banner style="display:none;">
-        <span class="ad-banner-tag">Upcoming Event</span>
-        <h3 data-field="title"></h3>
-        <p data-field="body"></p>
-        <a href="events.html" class="btn btn-outline on-light btn-sm">View Details</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -184,6 +165,19 @@
       <blockquote>&ldquo;Mrs Lombard was in charge of all our formalised training and responsible for implementation and management of all our learnership programmes and SETA graduate initiatives. She managed these programmes with great enthusiasm and success.&rdquo;</blockquote>
       <div class="testimonial-author">Paul Jacobus</div>
       <div class="testimonial-role">CEO, ProGroup Pharmacies</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-kicker">Stay Up To Date</span>
+      <h2>News &amp; Events</h2>
+      <p>The latest from QT Training &mdash; upcoming events, funding opportunities and partner updates.</p>
+    </div>
+    <div class="news-grid" data-news-events-grid>
+      <p class="empty-state">Loading&hellip;</p>
     </div>
   </div>
 </section>
