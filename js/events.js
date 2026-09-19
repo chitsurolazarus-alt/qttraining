@@ -35,7 +35,7 @@ async function loadEvents() {
 
   const { data, error } = await supabase
     .from("events")
-    .select("title, description, event_date, location, cover_image_url")
+    .select("title, description, event_date, location, cover_image_url, status")
     .eq("is_published", true)
     .order("event_date", { ascending: true });
 
@@ -46,8 +46,13 @@ async function loadEvents() {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  const upcoming = data.filter((e) => !e.event_date || e.event_date >= today);
-  const past = data.filter((e) => e.event_date && e.event_date < today).reverse();
+  function isUpcoming(e) {
+    if (e.status === "upcoming") return true;
+    if (e.status === "past") return false;
+    return !e.event_date || e.event_date >= today;
+  }
+  const upcoming = data.filter(isUpcoming);
+  const past = data.filter((e) => !isUpcoming(e)).reverse();
 
   renderList(upcomingTarget, upcoming, "No upcoming events scheduled right now.");
   renderList(pastTarget, past, "No past events to show yet.");

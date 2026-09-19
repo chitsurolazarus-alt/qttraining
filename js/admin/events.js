@@ -87,6 +87,7 @@ async function loadRows() {
       form.cover_image_url.value = row.cover_image_url || "";
       showPreview(row.cover_image_url || null);
       uploadNote.textContent = row.cover_image_url ? "Current image will be kept unless you choose a new file." : "";
+      form.status.value = row.status || "auto";
       form.is_published.checked = !!row.is_published;
       openPanel();
     });
@@ -142,6 +143,7 @@ form.addEventListener("submit", async (e) => {
       location: form.location.value.trim() || null,
       description: form.description.value.trim() || null,
       cover_image_url: form.cover_image_url.value || null,
+      status: form.status.value || "auto",
       is_published: form.is_published.checked,
     };
 
